@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Class</title>
+</head>
+<body>
+    <h1>Update Class Details</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="class_name">Class Name:</label>
+        <input type="text" value="{{ school.class_name }}" name="class_name"> <br><br>
+
+        <label for="number_of_students">Number of Students: </label>
+        <input type="number" value="{{ school.number_of_students }}" name="number_of_students"> <br><br>
+
+        <label for="teachet">Class Teacher:</label>
+        <input type="text" value="{{ school.teacher }}" name="teacher"> <br><br>
+
+        <label for="mentor">Class Mentor:</label>
+        <input type="text" value="{{ school.mentor }}" name="mentor"> <br><br>
+
+        <label for="image">Class Image:</label>
+        <img src="/media/{{school.image}}" alt="">
+        <input type="file" name="img"><br><br>
+
+        <button type="submit">Update Class</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Data</title>
+</head>
+<body>
+    <h1>View School Classes</h1>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Class Name</th>
+            <th>Num. of Students</th>
+            <th>Teacher</th>
+            <th>Mentor</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+        {% for sc in schooler %}
+        <tr>
+            <td>{{ sc.id }}</td>
+            <td>{{ sc.class_name }}</td>
+            <td>{{ sc.number_of_students }}</td>
+            <td>{{ sc.teacher }}</td>
+            <td>{{ sc.mentor }}</td>
+
+            <td>
+                <img src="/media/{{ sc.image }}" alt="{{sc.name}}" width="80" height="80">
+            </td>
+            <td><a href="{% url 'update' sc.id %}"> Update</a></td>
+            <td><a href="{% url 'delete_data' sc.id %}"> Delete</a></td>
+        </tr>
+        {% endfor %}
+
+        <a href="{% url 'insert' %}">Add Class</a>
+    </table>
+    
+</body>
+</html>
